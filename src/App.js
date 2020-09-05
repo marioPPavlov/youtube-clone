@@ -1,8 +1,6 @@
 import React from 'react'
 import './App.css'
-import Header from "./components/Header"
-import RecommendedVideos from "./components/RecommendedVideos"
-import Sidebar from "./components/Sidebar"
+import { Header, RecommendedVideos, Sidebar } from "./components"
 
 function App() {
     return (

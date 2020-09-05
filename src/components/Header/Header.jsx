@@ -7,7 +7,7 @@ import VideCallIcon from "@material-ui/icons/VideoCall"
 import React from 'react'
 import "./Header.css"
 
-function Header() {
+export function Header() {
     return (
         <div className="header">
             <div className="header">
@@ -35,5 +35,3 @@ function Header() {
         </div>
     )
 }
-
-export default Header
