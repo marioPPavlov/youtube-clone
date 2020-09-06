@@ -12,6 +12,9 @@ import "./Header.css"
 export function Header() {
     const [inputSearch, setInputSearch] = useState('')
     const history = useHistory()
+    const routeToSearch = () => {
+        history.push(`${ROUTES.SEARCH}/${inputSearch}`)
+    }
 
     const inputHandler = (evt) => {
         setInputSearch(evt.target.value)
@@ -19,7 +22,7 @@ export function Header() {
 
     const keyHandler = (evt) => {
         if (evt.key === "Enter") {
-            history.push(`${ROUTES.SEARCH}/${inputSearch}`)
+            routeToSearch()
         }
     }
 
@@ -43,9 +46,7 @@ export function Header() {
                     placeholder="Search"
                     type="text"
                 />
-                <Link to={`/search/${inputSearch}`}>
-                    <SearchIcon className="header__inputButton" />
-                </Link>
+                <SearchIcon onClick={routeToSearch} className="header__inputButton" />
             </div>
 
             <div className="header__icons">

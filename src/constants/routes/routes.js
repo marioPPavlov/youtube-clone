@@ -1,4 +1,5 @@
 export const ROUTES = {
     SEARCH: "/search",
-    HOME: "/"
+    HOME: "/",
+    WATCH: "/watch"
 }

@@ -30,7 +30,8 @@
 .header__inputButton {
     width: 50px !important;
     background-color: #fafafa;
-    border-left: 1px solid lightgray
+    border-left: 1px solid lightgray;
+    font-weight: 500;
 }
 
 .header__icons {

@@ -5,7 +5,8 @@ import {
     Header,
     RecommendedVideos,
     SearchPage,
-    Sidebar
+    Sidebar,
+    VideoPage
 } from "./components"
 import { ROUTES } from "./constants"
 
@@ -21,7 +22,19 @@ function App() {
                             <SearchPage />
                         </div>
                     </Route>
-                    <Route path="/">
+                    <Route path={`${ROUTES.WATCH}/:videoId`}>
+                        <div className="app__page">
+                            <VideoPage 
+                                title="Cute and Funny Cat Videos to Keep You Smiling! 🐱"
+                                views="4.5M views"
+                                channel="Rufus"
+                                url="https://www.youtube.com/watch?v=tpiyEe_CqB4"
+                                likes="33K"
+                                dislikes="474"
+                            />
+                        </div>
+                    </Route>
+                    <Route path={ROUTES.HOME}>
                         <div className="app__page">
                             <Sidebar />
                             <RecommendedVideos />

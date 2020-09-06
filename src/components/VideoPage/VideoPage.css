@@ -1,0 +1,54 @@
+.videoPage { 
+    display: flex;
+    margin: 0px 40px;
+}
+
+.videoPage__videoWrapper{
+
+    flex: 0.6;
+}
+
+.videoPage__player {
+    position: relative;
+    height: 360px;
+}
+
+.videoPage__player > div {
+    top: 0;
+    left: 0;
+}
+
+.videoPage__title {
+    padding: 10px;
+    font-weight: 500;
+}
+
+.videoPage__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #606060;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+
+.videoPage__info > div{
+    display: flex;
+    align-items: center;
+}
+
+.videoPage__info > div > div{
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.videoPage__icon{
+    margin-right: 10px;
+    font-weight: 700px;
+}
+
+.videoPage__rows {
+    flex: 0.4;
+    margin-left: 25px;
+}

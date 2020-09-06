@@ -10,6 +10,7 @@ export function SearchPage() {
                 <TuneOutlinedIcon />
                 <h2>FILTER</h2>
             </div>
+                <hr/>
 
             <VideoRow
                 title="Cute and Funny Cat Videos to Keep You Smiling! 🐱"
