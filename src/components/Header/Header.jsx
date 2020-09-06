@@ -4,23 +4,48 @@ import MenuIcon from "@material-ui/icons/Menu"
 import NotificationIcon from "@material-ui/icons/Notifications"
 import SearchIcon from "@material-ui/icons/Search"
 import VideCallIcon from "@material-ui/icons/VideoCall"
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, useHistory } from "react-router-dom"
+import { ROUTES } from "../../constants"
 import "./Header.css"
 
 export function Header() {
+    const [inputSearch, setInputSearch] = useState('')
+    const history = useHistory()
+
+    const inputHandler = (evt) => {
+        setInputSearch(evt.target.value)
+    }
+
+    const keyHandler = (evt) => {
+        if (evt.key === "Enter") {
+            history.push(`${ROUTES.SEARCH}/${inputSearch}`)
+        }
+    }
+
     return (
         <div className="header">
-            <div className="header">
-                <MenuIcon />
-                <img
-                    className="header__logo"
-                    src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg"
-                    alt=""
-                />
+            <div className="header__home">
+                <Link to="/">
+                    <MenuIcon />
+                    <img
+                        className="header__logo"
+                        src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg"
+                        alt=""
+                    />
+                </Link>
             </div>
             <div className="header__input">
-                <input placeholder="Search" type="text" />
-                <SearchIcon className="header__inputButton"/>
+                <input
+                    onChange={inputHandler}
+                    onKeyDown={keyHandler}
+                    value={inputSearch}
+                    placeholder="Search"
+                    type="text"
+                />
+                <Link to={`/search/${inputSearch}`}>
+                    <SearchIcon className="header__inputButton" />
+                </Link>
             </div>
 
             <div className="header__icons">
