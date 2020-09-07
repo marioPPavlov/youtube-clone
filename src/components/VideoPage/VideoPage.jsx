@@ -3,7 +3,7 @@ import SaveIcon from "@material-ui/icons/Save"
 import ShareIcon from "@material-ui/icons/Share"
 import ThumbDownIcon from "@material-ui/icons/ThumbDown"
 import ThumbUpIcon from "@material-ui/icons/ThumbUp"
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactPlayer from "react-player/youtube"
 import { useParams } from "react-router-dom"
 import { getVideoUrl } from "../../helpers"
@@ -16,6 +16,14 @@ export function VideoPage(props) {
     const video = videos[id]
     delete videos[id]
     //no error handling for above :)
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    useEffect(() => {
+        scrollToTop()
+    }, [video])
 
     return (
         <div className="videoPage">
