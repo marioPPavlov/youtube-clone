@@ -5,39 +5,43 @@ import ThumbDownIcon from "@material-ui/icons/ThumbDown"
 import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import React from 'react'
 import ReactPlayer from "react-player/youtube"
-import { VideoRow } from "../VideoRow"
+import { useParams } from "react-router-dom"
+import { getVideoUrl } from "../../helpers"
+import { VideoColumn } from "../VideoColumn"
 import "./VideoPage.css"
 
-export function VideoPage({
-    title, url, views,
-    likes, dislikes,
-}) {
+export function VideoPage(props) {
+    const videos = { ...props.videos }
+    const id = useParams().id
+    const video = videos[id]
+    delete videos[id]
+    //no error handling for above :)
+
     return (
         <div className="videoPage">
             <div className="videoPage__videoWrapper">
                 <div className="videoPage__player">
                     <ReactPlayer
-                        url={url}
+                        url={getVideoUrl(video.id)}
                         width='100%'
                         height='100%'
                         controls
                     />
                 </div>
-                <h2 className={"videoPage__title"}>{title}</h2>
+                <h2 className={"videoPage__title"}>{video.title}</h2>
                 <div className="videoPage__info">
                     <div>
-                        {views}
+                        {video.views}
                     </div>
-
                     <div>
                         <div>
                             <ThumbUpIcon className={"videoPage__icon"} />
-                            {likes}
+                            {video.likes}
                         </div>
 
                         <div>
                             <ThumbDownIcon className={"videoPage__icon"} />
-                            {dislikes}
+                            {video.dislikes}
                         </div>
                         <div>
                             <ShareIcon className={"videoPage__icon"} />
@@ -47,31 +51,14 @@ export function VideoPage({
                         <div>
                             <p>SAVE</p>
                         </div>
-
                         <MoreHorizIcon />
                     </div>
                 </div>
                 <hr />
             </div>
+
             <div className="videoPage__rows">
-
-                <VideoRow
-                    title="Cute and Funny Cat Videos to Keep You Smiling! 🐱"
-                    views="4.5M views"
-                    timestamp="4 months ago"
-                    channel="Rufus"
-                    image="https://i.ytimg.com/vi/tpiyEe_CqB4/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDmdQFh5fvOwGTCZ0yeG_Gy-eXemg"
-                    channelImage="https://yt3.ggpht.com/a/AATXAJyoJPSB2w_XrUUmkW2QhWxGifWrpUr5eJJjKCkQ=s88-c-k-c0xffffffff-no-rj-mo"
-                />
-
-                <VideoRow
-                    title="Funny DOGS, prepare yourself to CRY WITH LAUGHTER! - Best DOG VIDEOS"
-                    views="6.1M views"
-                    timestamp="1 year ago"
-                    channel="Tiger Productions"
-                    image="https://i.ytimg.com/vi/BRMK77NUsyU/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDZGJhtP7YFCr3E8hqRP6vY_7jDGg"
-                    channelImage="https://yt3.ggpht.com/a/AATXAJzoRfw15Mr9QjKzE96xY-mubAtJUYSMvKDDYX2m7g=s88-c-k-c0xffffffff-no-rj-mo"
-                />
+                <VideoColumn videos={videos} />
             </div>
         </div>
     )

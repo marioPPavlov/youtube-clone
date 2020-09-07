@@ -9,6 +9,7 @@ import {
     VideoPage
 } from "./components"
 import { ROUTES } from "./constants"
+import { videos } from "./data"
 
 function App() {
     return (
@@ -19,25 +20,18 @@ function App() {
                     <Route path={`${ROUTES.SEARCH}/:item`}>
                         <div className="app__page">
                             <Sidebar />
-                            <SearchPage />
+                            <SearchPage videos={videos}/>
                         </div>
                     </Route>
-                    <Route path={`${ROUTES.WATCH}/:videoId`}>
+                    <Route path={`${ROUTES.WATCH}/:id`}>
                         <div className="app__page">
-                            <VideoPage 
-                                title="Cute and Funny Cat Videos to Keep You Smiling! 🐱"
-                                views="4.5M views"
-                                channel="Rufus"
-                                url="https://www.youtube.com/watch?v=tpiyEe_CqB4"
-                                likes="33K"
-                                dislikes="474"
-                            />
+                            <VideoPage videos={videos} />
                         </div>
                     </Route>
                     <Route path={ROUTES.HOME}>
                         <div className="app__page">
                             <Sidebar />
-                            <RecommendedVideos />
+                            <RecommendedVideos videos={videos} />
                         </div>
                     </Route>
                 </Switch>
