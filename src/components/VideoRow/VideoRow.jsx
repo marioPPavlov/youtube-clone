@@ -12,8 +12,8 @@ export function VideoRow({
     image
 }) {
     return (
-        <Link to={getWatchUrl(id)}>
-            <div className="videoRow">
+        <div className="videoRow">
+            <Link className={"videoRow__linkWrapper"} to={getWatchUrl(id)} >
                 <img src={image} alt="" />
                 <div className="videoRow__text">
                     <h3>{title}</h3>
@@ -21,7 +21,7 @@ export function VideoRow({
                         {channel} • {views} • {timestamp}
                     </p>
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     )
 }

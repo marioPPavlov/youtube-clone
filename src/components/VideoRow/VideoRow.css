@@ -1,10 +1,10 @@
-.videoRow {
+.videoRow__linkWrapper {
     display:flex;
     margin-bottom: 30px;
     max-width: 700px;
 }
 
-.videoRow > img {
+.videoRow__linkWrapper > img {
     object-fit: contain;
     width: 246px;
     height: 138px;
@@ -19,3 +19,16 @@
 .videoRow__text{
     margin-left: 15px;
 }
+
+a:link { 
+    text-decoration: none; 
+} 
+a:hover { 
+    text-decoration: none; 
+} 
+a:visited { 
+    text-decoration: none; 
+} 
+a:active { 
+    text-decoration: none; 
+} 
