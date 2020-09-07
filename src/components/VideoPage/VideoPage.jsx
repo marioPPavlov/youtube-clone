@@ -1,13 +1,9 @@
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz"
-import SaveIcon from "@material-ui/icons/Save"
-import ShareIcon from "@material-ui/icons/Share"
-import ThumbDownIcon from "@material-ui/icons/ThumbDown"
-import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import React, { useEffect } from 'react'
 import ReactPlayer from "react-player/youtube"
 import { useParams } from "react-router-dom"
 import { getVideoUrl } from "../../helpers"
 import { VideoColumn } from "../VideoColumn"
+import { VideoInfo } from "../VideoInfo"
 import "./VideoPage.css"
 
 export function VideoPage(props) {
@@ -36,35 +32,8 @@ export function VideoPage(props) {
                         controls
                     />
                 </div>
-                <h2 className={"videoPage__title"}>{video.title}</h2>
-                <div className="videoPage__info">
-                    <div>
-                        {video.views}
-                    </div>
-                    <div>
-                        <div>
-                            <ThumbUpIcon className={"videoPage__icon"} />
-                            {video.likes}
-                        </div>
-
-                        <div>
-                            <ThumbDownIcon className={"videoPage__icon"} />
-                            {video.dislikes}
-                        </div>
-                        <div>
-                            <ShareIcon className={"videoPage__icon"} />
-                            <p>SHARE</p>
-                        </div>
-                        <SaveIcon className={"videoPage__icon"} />
-                        <div>
-                            <p>SAVE</p>
-                        </div>
-                        <MoreHorizIcon />
-                    </div>
-                </div>
-                <hr />
+                <VideoInfo video={video}/>
             </div>
-
             <div className="videoPage__rows">
                 <VideoColumn videos={videos} />
             </div>

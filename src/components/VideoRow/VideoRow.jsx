@@ -9,7 +9,7 @@ export function VideoRow({
     timestamp,
     channel,
     title,
-    image
+    image,
 }) {
     return (
         <div className="videoRow">
@@ -17,8 +17,9 @@ export function VideoRow({
                 <img src={image} alt="" />
                 <div className="videoRow__text">
                     <h3>{title}</h3>
+                    <p className="videoRow__channel">{channel}</p>
                     <p className="videoRow__headline">
-                        {channel} • {views} • {timestamp}
+                        {views} • {timestamp}
                     </p>
                 </div>
             </Link>
