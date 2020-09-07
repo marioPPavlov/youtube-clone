@@ -10,26 +10,26 @@ import "./VideoInfo.css"
 export function VideoInfo({ video }) {
     return (
         <div className="videoInfo">
-            <h2 className={"videoInfo__title"}>{video.title}</h2>
+            <h2 className="videoInfo__title">{video.title}</h2>
             <div className="videoInfo__upper">
                 <div>
                     {video.views}
                 </div>
                 <div>
                     <div>
-                        <ThumbUpIcon className={"videoInfo__icon"} />
+                        <ThumbUpIcon className="videoInfo__icon" />
                         {video.likes}
                     </div>
 
                     <div>
-                        <ThumbDownIcon className={"videoInfo__icon"} />
+                        <ThumbDownIcon className="videoInfo__icon" />
                         {video.dislikes}
                     </div>
                     <div>
-                        <ShareIcon className={"videoInfo__icon"} />
+                        <ShareIcon className="videoInfo__icon" />
                         <p>SHARE</p>
                     </div>
-                    <SaveIcon className={"videoInfo__icon"} />
+                    <SaveIcon className="videoInfo__icon" />
                     <div>
                         <p>SAVE</p>
                     </div>

@@ -13,7 +13,7 @@ export function VideoRow({
 }) {
     return (
         <div className="videoRow">
-            <Link className={"videoRow__linkWrapper"} to={getWatchUrl(id)} >
+            <Link className="videoRow__linkWrapper" to={getWatchUrl(id)} >
                 <img src={image} alt="" />
                 <div className="videoRow__text">
                     <h3>{title}</h3>
